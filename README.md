@@ -17,37 +17,37 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 Assumindo que vocês estejam usando máquina virtua com o SO Fedora 35+
 Antes de baixar o presente projeto devemos ter as seguintes ferramentas:
 
-```
+```bash
 
-	##############################################
-	# Instalação do NodeJS no Fedora
-	##############################################
-	 sudo dnf install nodejs.x86_64
-	 node -v
-	##############################################
+  ##############################################
+  # Instalação do NodeJS no Fedora
+  ##############################################
+   sudo dnf install nodejs.x86_64
+   node -v
+  ##############################################
 
-	##############################################
-	# Instalação da Ferramenta Node.Js Version Manager
-	##############################################
-	 curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/${NVM_VERSION}/install.sh" | bash
-	 node -v
-	##############################################
+  ##############################################
+  # Instalação da Ferramenta Node.Js Version Manager
+  ##############################################
+   curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/${NVM_VERSION}/install.sh" | bash
+   node -v
+  ##############################################
 
-	##############################################
-	# Instalação do Angular CLI
-	##############################################
+  ##############################################
+  # Instalação do Angular CLI
+  ##############################################
 
     export NODE_VERSION="v20.12.1"
     export NVM_VERSION="v0.39.3"
     export NG_CLI_VERSION="17.3.3"
 
-	  nvm install "${NODE_VERSION}"
-	  nvm use "${NODE_VERSION}"
+    nvm install "${NODE_VERSION}"
+    nvm use "${NODE_VERSION}"
 
-	  npm install -g "@angular/cli@${NG_CLI_VERSION}"
+    npm install -g "@angular/cli@${NG_CLI_VERSION}"
     ng version
     
-	##############################################
+  ##############################################
 
 ```
 
