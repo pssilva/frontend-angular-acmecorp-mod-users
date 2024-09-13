@@ -19,6 +19,10 @@ Antes de baixar o presente projeto devemos ter as seguintes ferramentas:
 
 ```bash
 
+  export NODE_VERSION="v20.12.1"
+  export NVM_VERSION="v0.39.3"
+  export NG_CLI_VERSION="17.3.3"
+
   ##############################################
   # Instalação do NodeJS no Fedora
   ##############################################
@@ -36,10 +40,6 @@ Antes de baixar o presente projeto devemos ter as seguintes ferramentas:
   ##############################################
   # Instalação do Angular CLI
   ##############################################
-
-    export NODE_VERSION="v20.12.1"
-    export NVM_VERSION="v0.39.3"
-    export NG_CLI_VERSION="17.3.3"
 
     nvm install "${NODE_VERSION}"
     nvm use "${NODE_VERSION}"
