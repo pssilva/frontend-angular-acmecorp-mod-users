@@ -188,6 +188,8 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
   - [ ] UI Notificação Modal
   - [ ] UI Navegar Listagem com paginação (Read - CRUD)
   - [ ] Update - CRUD 
+- [ ] Realizar [Análise Exploratória](#da-analise-exploratoria) dos seguintes projetos Open-Source: 
+  - [ ] [AdminLTE (v3.2.0)](https://github.com/ColorlibHQ/AdminLTE/releases/tag/v3.2.0)
 
 ### Indexação de Vídeos
 
