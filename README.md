@@ -116,7 +116,7 @@ npm run start
 
 ```
 
-Depois de iniciar a aplicação pela IDE acesso o Swagger UI no sequinte link: http://localhost:4200/
+Depois de iniciar a aplicação pela IDE acesso a Aplicação pelo sequinte link: http://localhost:4200/
 
 
 ---
@@ -178,8 +178,11 @@ Segue abaixo (não se limita) os objetivos do presente projeto:
   - [ ] Funcionalidades de notificações de mensagens de erro
 - [ ] Cobertura de Testes
   - [ ] TDD - Técnica: Red-Green-Refactory para cada Caso de Uso da aplicação:
-    - [ ] Caso de Uso: Autenticação | Autorização
-    - [ ] Caso de Uso: Gestão Usuários: Artefato: ``
+    - [ ] Caso de Uso: Autenticação | Autorização:
+       - [ ] Artefato: `app/users/services/users-login.service.spec.ts`
+       - [ ] Artefato: `app/users/componentes/login/login.component.spec.ts`
+    - [ ] Caso de Uso: Gestão Usuários:
+      - [ ] Artefato: `app/users/services/users.service.spec.ts`
 - [ ] Telas para atender os Endpoints (Operações CRUD)
   - [X] UI Registro de Usuário (Create - CRUD)
   - [X] UI Login de Usuário (Read - CRUD)
