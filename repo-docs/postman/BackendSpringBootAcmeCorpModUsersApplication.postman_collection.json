@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "51a01bd9-f042-41db-838f-ba8fb1c3b35c",
+		"name": "BackendSpringBootAcmeCorpModUsersApplication",
+		"description": "```\nProjeto para evidenciar habilidades técnica na criação de um módulo de gestão de usuários básicos para autenticação e autorização e  desafio técnico na(s) empresa(s) AcmeCorp.\n.\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3410303"
+	},
+	"item": [
+		{
+			"name": "auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"paulo xpto 55555\", \n    \"email\":\"xpto55555@gmail.com\", \n    \"pass_hash\":\"55555\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acmecorp_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Pss no SWagger\",\n  \"lastName\": \"James\",\n  \"email\": \"john@email.com\",\n  \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acmecorp_servidor}}/users",
+					"host": [
+						"{{acmecorp_servidor}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acmecorp_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"cdabe9b6-5604-4c32-973f-efac02867028\",\n    \"name\": \"paulo xpto 55555 testando update ----\",\n    \"email\": \"xpto55555@gmail.com\",\n    \"pass_hash\": \"$2a$10$mEZlW5lNBsUa.pohQHMdZe/q8tyWI92h/XWE7Ftr7XVroOvXVpv2G\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acmecorp_servidor}}/users/cdabe9b6-5604-4c32-973f-efac02867028",
+					"host": [
+						"{{acmecorp_servidor}}"
+					],
+					"path": [
+						"users",
+						"cdabe9b6-5604-4c32-973f-efac02867028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acmecorp_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"cdabe9b6-5604-4c32-973f-efac02867028\",\n    \"name\": \"paulo xpto 55555 testando update ----\",\n    \"email\": \"xpto55555@gmail.com\",\n    \"pass_hash\": \"$2a$10$mEZlW5lNBsUa.pohQHMdZe/q8tyWI92h/XWE7Ftr7XVroOvXVpv2G\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acmecorp_servidor}}/users/cdabe9b6-5604-4c32-973f-efac02867028",
+					"host": [
+						"{{acmecorp_servidor}}"
+					],
+					"path": [
+						"users",
+						"cdabe9b6-5604-4c32-973f-efac02867028"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const resposta = pm.response.json();",
+							"pm.globals.set(\"acmecorp_token\", resposta.token);",
+							"pm.environment.set(\"acmecorp_token\", resposta.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"xpto21212121@gmail.com\", \n    \"password\":\"21212121\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsInN1YiI6InhwdG83Nzc3N0BnbWFpbC5jb20iLCJleHAiOjE3MjUyMDczMzB9.loEteRhmnGiP5vS0uoRhB657bchnIbRuLPNsE_4lK-0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users-findById-read",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acmecorp_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "ssss",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{acmecorp_servidor}}/users/ee8298bf-4e64-4024-a195-164127552abd",
+					"host": [
+						"{{acmecorp_servidor}}"
+					],
+					"path": [
+						"users",
+						"ee8298bf-4e64-4024-a195-164127552abd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acmecorp_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{acmecorp_servidor}}/users/api?page=0&pageSize=50",
+					"host": [
+						"{{acmecorp_servidor}}"
+					],
+					"path": [
+						"users",
+						"api"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

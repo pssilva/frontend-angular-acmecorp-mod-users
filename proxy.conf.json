@@ -1,0 +1,48 @@
+{
+  "/auth/api/users**": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/auth/api/users" : "http://localhost:8080/auth/api/users"
+      },
+      "headers": {
+        "Connection": "keep-alive"
+      }
+  },
+  "/auth/api/login**": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/auth/api/login" : "http://localhost:8080/auth/api/login"
+      },
+      "headers": {
+        "Connection": "keep-alive"
+      }
+  },
+  "/auth/api/register**": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/auth/api/register" : "http://localhost:8080/auth/api/register"
+      },
+      "headers": {
+        "Connection": "keep-alive"
+      }
+  },
+  "/users/api**": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/users/api" : "http://localhost:8080//users/api"},
+    "headers": {
+      "Connection": "keep-alive"
+    }
+}
+}

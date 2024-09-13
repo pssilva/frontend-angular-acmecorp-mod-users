@@ -1,0 +1,138 @@
+
+<app-tag-head></app-tag-head>
+<div class="register-page bg-body-secondary">
+  <div class="register-box">
+    <div class="register-logo"> 
+        <a href="users/register">
+            <img src="src/assets/img/Acme-corp.png"  alt="Logo Marca do Portal da AcmeCorp - Portal da Aplicação!" title="Logo Marca do Portal da AcmeCorp - Portal da Aplicação" style="width:100%;"/>
+        </a> 
+    </div> <!-- /.register-logo -->
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="register-box-msg">Registro de Usuário</p>
+            <form [formGroup]="form" >
+                <div class="input-group mb-3"> 
+                    <input required type="text" class="form-control" 
+                    placeholder="Full Name" formControlName="name" id="name">
+                
+                    <div class="input-group-text"> 
+                        <span class="bi bi-person"></span> 
+                    </div>
+                </div>
+
+                <div class="input-group mb-3" 
+                    *ngIf="this.form.controls['name'].invalid 
+                        && (this.form.controls['name'].dirty 
+                         || this.form.controls['name'].touched)" >
+                    <div *ngIf="this.form.controls['name'].hasError('required')">
+                        <span class="alert alert-danger">Nome é Obrigatório!</span>
+                    </div>
+                    <div *ngIf="this.form.controls['name'].hasError('maxLength')">
+                        <span class="alert alert-danger">O nome Máximo 100 caracteres.</span>
+                    </div>
+                    <div *ngIf="this.form.controls['name'].hasError('minlength')">
+                        <span class="alert alert-danger">O nome Menos 6 caracteres.</span>
+                    </div>
+                </div>
+                
+                <div class="input-group mb-3"> 
+                    <input required matInput type="email" id="email"
+                        class="form-control" placeholder="Email" formControlName="email" #email
+                        >
+                    <div class="input-group-text"> 
+                        <span class="bi bi-envelope"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3" 
+                    *ngIf="this.form.controls['email'].invalid 
+                        && (this.form.controls['email'].dirty 
+                         || this.form.controls['email'].touched)" >
+                    <div *ngIf="this.form.controls['email'].hasError('required')">
+                        <span class="alert alert-danger">Email é Obrigatório!</span>
+                    </div>
+                    <div *ngIf="this.form.controls['email'].hasError('maxLength')">
+                        <span class="alert alert-danger">O Email Máximo 60 caracteres.</span>
+                    </div>
+                    <div *ngIf="this.form.controls['email'].hasError('minlength')">
+                        <span class="alert alert-danger">O Email Menos 6 caracteres.</span>
+                    </div>
+                    <div *ngIf="this.form.controls['email'].hasError('pattern')">
+                        <span class="alert alert-danger">O Email Inválido!.</span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3"> 
+                    <input required matInput type="password" id="pass_hash"
+                    class="form-control" placeholder="Password" formControlName="pass_hash">
+                    <div class="input-group-text"> 
+                        <span class="bi bi-lock-fill"></span> 
+                    </div>
+                </div> <!--begin::Row-->
+                <div class="input-group mb-3" 
+                    *ngIf="this.form.controls['pass_hash'].invalid 
+                        && (this.form.controls['pass_hash'].dirty 
+                         || this.form.controls['pass_hash'].touched)" >
+                    <div *ngIf="this.form.controls['pass_hash'].hasError('required')">
+                        <span class="alert alert-danger">Senha é Obrigatório!</span>
+                    </div>
+                    <div *ngIf="this.form.controls['pass_hash'].hasError('maxLength')">
+                        <span class="alert alert-danger">O Senha Máximo 40 caracteres.</span>
+                    </div>
+                    <div *ngIf="this.form.controls['pass_hash'].hasError('minlength')">
+                        <span class="alert alert-danger">O Senha Menos 6 caracteres.</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault">
+                                I agree to the <a href="#">terms</a> </label> </div>
+                    </div> <!-- /.col -->
+                    <div class="col-4">
+                        <div class="d-grid gap-2"> <button  class="btn btn-primary" type="button" (click)="onSubmit(form)" >Sign In</button> </div>
+                    </div> <!-- /.col -->
+                </div> <!--end::Row-->
+            </form>
+            <div class="social-auth-links text-center mb-3 d-grid gap-2">
+                <p>- OR -</p> <a href="#" class="btn btn-primary"> <i class="bi bi-facebook me-2"></i> Sign in using Facebook
+                </a> <a href="#" class="btn btn-danger"> <i class="bi bi-google me-2"></i> Sign in using Google+
+                </a>
+            </div> <!-- /.social-auth-links -->
+            <p class="mb-0"> <a href="users/login" class="text-center">
+                    Eu Já tenho um Registro!
+                </a> </p>
+        </div> <!-- /.register-card-body -->
+    </div>
+
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script> <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script> <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script> <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="adminlte.js"></script> <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+        const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+        const Default = {
+            scrollbarTheme: "os-theme-light",
+            scrollbarAutoHide: "leave",
+            scrollbarClickScroll: true,
+        };
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+            if (
+                sidebarWrapper &&
+                typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+            ) {
+                OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                    scrollbars: {
+                        theme: Default.scrollbarTheme,
+                        autoHide: Default.scrollbarAutoHide,
+                        clickScroll: Default.scrollbarClickScroll,
+                    },
+                });
+            }
+        });
+    </script> <!--end::OverlayScrollbars Configure--> <!--end::Script-->
+  
+  <!--end::Script-->
+</div>
