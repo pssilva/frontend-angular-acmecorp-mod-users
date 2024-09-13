@@ -153,10 +153,8 @@ Projeto inicializado com o [`Scripts de automação próprio`]().
 Segue abaixo (não se limita) os problemas identificados até o momento.
 Aqui temos uma lista do que idenficamos com status de pendente:
 
-- [ ] [Plugin OpenAPI (Swagger)](https://www.baeldung.com/spring-boot-openapi-api-first-development) UI gerando duplicidade de endpoints n URL: http://localhost:8080/swagger-ui/index.html
-- [ ] Endpoins na Versão V1 fora da
-- [ ] Cobertura (JavaCoCo) da Camada de testes unitários não configurado
-- [ ] Endpoins na Versão V1 fora da [Arquitetura Limpa](#)
+- [ ] Reset de senha com email
+- [ ] Organização dos Pastas dos componetes adaptados ao [Templante AdminLTE](#template-html-adminlte)
 - [ ] Cadastro do Usuário com o seu respectivo Grupo de Acesso (Rules)
 
 ## 📦 Desenvolvimento
