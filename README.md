@@ -153,6 +153,7 @@ Projeto inicializado com o [`Scripts de automação próprio`]().
 Segue abaixo (não se limita) os problemas identificados até o momento.
 Aqui temos uma lista do que idenficamos com status de pendente:
 
+- [ ] Sing out | Logout
 - [ ] Reset de senha com email
 - [ ] Organização dos Pastas dos componetes adaptados ao [Templante AdminLTE](#template-html-adminlte)
 - [ ] Cadastro do Usuário com o seu respectivo Grupo de Acesso (Rules)
