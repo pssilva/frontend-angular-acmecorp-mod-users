@@ -13,6 +13,7 @@ import { TagHeadComponent } from '../../../shared/components/list-table/tag-head
 import { FormUtilsService } from './../../../shared/form/form-utils.service';
 import { UsersLoginService } from './../../services/users-login.service';
 import { UsersLoginRequestDTO } from '../../model/usersLoginRequestDTO';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -35,16 +36,21 @@ export class UsersLoginComponent implements OnInit {
     email: '',
     password: ''
   };
-
+  token = sessionStorage.getItem("auth-token");
+  
   constructor(
     private service: UsersLoginService,
     private formBuilder: NonNullableFormBuilder,
     private location: Location,
     public formUtils: FormUtilsService,
     private router: Router,
+    private toastService: ToastrService
 
-  ) { }
+  ) { 
+    this.token = sessionStorage.getItem("auth-token");
+  }
 
+  
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', [
@@ -76,8 +82,27 @@ export class UsersLoginComponent implements OnInit {
     this.usersLoginRequestDTO.password = formParam.value.pass_hash;
 
     if (formParam.value.email != '' && formParam.value.pass_hash != '' ) {
-      this.service.login(this.usersLoginRequestDTO);
-      this.router.navigate([`users/list`]);
+      this.service.login(this.usersLoginRequestDTO) .subscribe({
+        next: loginResponseDTO => {
+
+            sessionStorage.setItem("auth-token", loginResponseDTO.token);
+            sessionStorage.setItem("profiles.active", loginResponseDTO.profilesActive);
+            sessionStorage.setItem("usersDTO", JSON.stringify(loginResponseDTO.usersDTO));
+            
+            console.log("Resposta POST AuthController::login = ", loginResponseDTO) ;
+
+
+            this.toastService.success("Login feito com sucesso!");
+            this.router.navigate([`users/list`]);
+
+            this.token = sessionStorage.getItem("auth-token");
+        },
+        error: error => {
+            //this.errorMessage = error.message;
+            this.toastService.error("Erro inesperado! Tente novamente mais tarde!"),
+            console.error('There was an error!', error);
+        }
+      });
     } else {
       this.formUtils.validateAllFormFields(formParam);
     }

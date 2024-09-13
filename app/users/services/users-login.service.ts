@@ -17,32 +17,18 @@ import { LoginResponseDTO } from '../model/loginResponseDTO';
 export class UsersLoginService {
 
   token = sessionStorage.getItem("auth-token");  
+  
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(
+    private httpClient: HttpClient
+  ) { 
     this.token = sessionStorage.getItem("auth-token");
   }
-
 
   login(user: UsersLoginRequestDTO){
     console.log("UsersLoginService::login::this.user", user);
     
-    return this.httpClient.post<LoginResponseDTO>( 
-          AppConstants.baseLogin,user)
-       .subscribe({
-          next: loginResponseDTO => {
-              console.log("Resposta POST AuthController::login = ", loginResponseDTO) ;
-
-              sessionStorage.setItem("auth-token", loginResponseDTO.token);
-              sessionStorage.setItem("profiles.active", loginResponseDTO.profilesActive);
-              sessionStorage.setItem("usersDTO", JSON.stringify(loginResponseDTO.usersDTO));
-
-              this.token = sessionStorage.getItem("auth-token");
-          },
-          error: error => {
-              //this.errorMessage = error.message;
-              console.error('There was an error!', error);
-          }
-        }); 
+    return this.httpClient.post<LoginResponseDTO>(AppConstants.baseLogin,user); 
   }
 
   list(page = 0, pageSize = 10) {
